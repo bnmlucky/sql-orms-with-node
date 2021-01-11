@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize) => {
     class Movie extends Sequelize.Model { }
     Movie.init({
-        // Set custom primary key column
+        // Attributes object
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -53,7 +53,15 @@ module.exports = (sequelize) => {
             allowNull: false,
             defaultValue: false, // set default value
         },
-    }, { sequelize });
+    },
+        // Model options object
+        {
+            // timestamps: false, //disable timestamps
+            // freezeTableName: true, // disable plural table names
+            // modelName: 'movie', // set model name to 'movie'; table name will be 'movies'
+            // tableName: 'my_movies_table', //table name change
+            sequelize
+        });
 
     return Movie;
 }
