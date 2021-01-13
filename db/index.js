@@ -18,5 +18,7 @@ const db = {
 };
 
 db.models.Movie = require('./models/movie.js')(sequelize);
+// import new model
+db.models.Person = require('./models/person.js')(sequelize);
 
 module.exports = db;
